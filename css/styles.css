@@ -1,0 +1,278 @@
+:root {
+  --green: rgb(243, 247, 227);
+  --darkergreen: rgb(53, 123, 112);
+  --lightergreen: rgb(5, 103, 110);
+  --lightblue: rgb(135, 206, 250);
+  --font: rgb(0, 0, 0);
+  --lightFont: rgb(255, 255, 255);
+  --dawnYellow: rgb(237, 198, 85);
+  --dayYellow: rgb(252, 255, 173);
+  --nightYellow: rgb(247, 100, 20);
+  --fontWeight: 700;
+  --primary-Font-Size: 30px;
+  --secondary-Font-Size: 24px;
+  --third-Font-Size: 18px;
+  --paragraph-Font-Size: 14px;
+  --body-Font-Size: 16px;
+  --line-Height: 1.6;
+  --margin: 17px;
+
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: var(--fontWeight);
+  font-size: var(-body-Font-Size);
+  line-height: var(--line-Height);
+  background-color: var(--green);
+  color: #3d3333;
+}
+
+.header__title {
+  /* No spacing to top and bottom and auto-spacing to left and right, which centers the container horizontally*/
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: var(--primary-Font-Size);
+  font-weight: var(--fontWeight);
+}
+
+h2 {
+  font-size: var(--secondary-Font-Size);
+  font-weight: var(--fontWeight);
+}
+
+h3 {
+  font-size: var(--third-Font-Size);
+  font-weight: var(--fontWeight);
+}
+
+p {
+  font-size: var(--paragraph-Font-Size);
+}
+
+/* Link stylings */
+a {
+  color: var(--darkergreen);
+}
+
+a:hover {
+  /* No underlining when hovering over a link */
+  text-decoration: none;
+}
+
+a:visited {
+  /* visited link */
+  color: var(--lightergreen);
+}
+
+a:active {
+  /* selected link */
+  color: var(--darkergreen);
+}
+
+.page-header {
+  /* parent container */
+  display: flex;
+  width: 100%;
+  padding: var(--margin);
+}
+
+.page-header__item {
+  /* special behavior to shrink along same ratio base width 200px */
+  flex: 0 1 150px;
+  width: 1%;
+}
+
+.page-header__item:last-child {
+  /* logo stay in place, navigation stays right aligned */
+  flex-grow: 1;
+  text-align: right;
+}
+
+div {
+  /* 5px inner spacing to all sides*/
+  padding: 5px;
+  /* 10px outer spacing to all sides*/
+  margin: var(--margin);
+  /* Border: thickness, type, color*/
+  border: 5px solid var(--font);
+}
+
+.navigation-list {
+  /* no style; get rid of dot order list */
+  list-style-type: none;
+}
+
+.navigation-list li {
+  /* aligns navigation in a row */
+  display: inline-block;
+  margin-left: var(--margin);
+}
+
+.navigation__logo {
+  /* position stays in normal position in flow of document sizing */
+  position: relative;
+  top: var(--margin);
+  left: var(--margin);
+}
+
+.article__img--right {
+  /* image stays right relative */
+  float: right;
+}
+
+.profile {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.profile__text {
+  flex: 1 1 100px;
+}
+
+.profile__portrait {
+  float: left;
+  width: 25%;
+  margin-left: 20%;
+  margin-right: 5%;
+  border-radius: 50%;
+
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@supports (display: grid) {
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+  }
+
+  .grid__item {
+    background-color: var(--lightblue);
+  }
+
+  .grid__item:last-child {
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+}
+
+.page-footer {
+  clear: both;
+  max-width: 250px;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+/* Button stylings */
+button {
+  /* overwrites browser defaults and resets the border */
+  border: none;
+  /* takes the font from the outer container */
+  font-family: inherit;
+  /* styles the background color, font color, and text decoration (underline, etc.) of the button */
+  background-color: var(--darkergreen);
+  color: var(--lightFont);
+  text-decoration: none;
+  /*adds spacing to the button (this will be discussed more in-depth later) */
+  padding: 10px;
+  border-radius: 3px;
+  /* gives the button a bottom border with a width of 2px, a type of solid, and a color in RGBA format */
+  border-bottom: 2px solid var(--font);
+  transition-duration: 0.2s;
+  transition-property: opacity;
+}
+
+button:hover,
+button:focus {
+  /* lets the mouse appear as a hand when hovering over the button */
+  cursor: pointer;
+  /* reduces the opacity of the button to 80% */
+  opacity: 0.8;
+}
+
+.page-footer {
+  clear: both;
+  display: flex;
+  text-align: center;
+}
+
+@keyframes color-change {
+  0% {
+    fill: var(--dawnYellow);
+  }
+
+  50% {
+    fill: var(--dayYellow);
+  }
+
+  100% {
+    fill: var(--nightYellow);
+  }
+}
+
+.sun {
+  animation: 4s color-change infinite alternate linear;
+}
+
+@keyframes cloud-move {
+  from {
+    transform: translate(0, 50px);
+  }
+
+  to {
+    transform: translate(200px, 50px);
+  }
+}
+
+.cloud-front {
+  animation: 30s cloud-move infinite alternate linear;
+}
+
+@keyframes cloud-move-reverse {
+  from {
+    transform: translate(446px, 48px);
+  }
+
+  to {
+    transform: translate(100px, 48px);
+  }
+}
+
+.cloud-back {
+  animation: 34s cloud-move-reverse infinite alternate linear;
+}
+
+@media all and (max-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media all and (min-width: 500px) and (max-width: 750px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media all and (max-width: 750px) {
+  .grid {
+    grid-gap: 10px;
+  }
+
+  .grid__item:last-child {
+    grid-column: auto / auto;
+    grid-row: auto / auto;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+}
