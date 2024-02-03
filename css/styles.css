@@ -94,7 +94,7 @@ a:active {
 div {
   /* 5px inner spacing to all sides*/
   padding: 5px;
-  /* 10px outer spacing to all sides*/
+  /* 17px outer spacing to all sides*/
   margin: var(--margin);
   /* Border: thickness, type, color*/
   border: 5px solid var(--font);
